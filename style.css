@@ -1,0 +1,67 @@
+
+
+body {
+    background: #0a192f;
+    
+}
+
+p {
+    color: #e6f1ff;
+}
+
+
+nav {
+    display: flex;
+    /* Space along the main axis */
+  justify-content: space-between;
+
+
+  /* Space between items */
+  gap: 20px;
+}
+
+
+
+nav a:first-child {
+    margin-right:auto;
+}
+
+nav a {
+    font-size: 20px;
+    color: white;
+}
+
+/* this is to make alll the content show in a vertical center section of the page */
+
+main, footer {
+    max-width: 800px;  /* Don't let the content get too wide */
+    margin: 0 auto;    /* Center the container */
+    padding: 0 20px;   /* Give its content 20px of side space */
+}
+
+
+#intro-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+#intro-section div > p:first-child {
+    font-size: 30px;
+}
+
+#intro-section span {
+    color: #64ffda
+}
+
+
+
+#social-links {
+    display: flex;
+    gap: 20px;
+}
+
+#about-me-section p:first-child {
+    font-size: 32px;
+}
