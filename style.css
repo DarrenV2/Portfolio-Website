@@ -1,17 +1,87 @@
 
 
+html {
+    scroll-behavior: smooth; /* nav links glide to their section instead of jumping */
+}
+
 body {
     background: #0a192f;
-    
+    font-family: Inter, "Segoe UI", system-ui, sans-serif;
+    font-size: 18px;
+    margin: 0; /* lets the sticky nav run edge to edge */
+}
+
+
+h1 {
+    color: #e6f1ff;
+    font-size: 70px;
+    letter-spacing: -1.5px; /* tighter spacing reads better at large sizes */
+}
+
+/* Section headings with a thin line extending to the right */
+h2 {
+    color: #e6f1ff;
+    font-size: 32px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+h2::after {
+    content: "";
+    flex: 1;
+    max-width: 300px;
+    height: 1px;
+    background-color: #233554;
+}
+
+/* Highlighted text uses the accent color */
+::selection {
+    background-color: #64ffda;
+    color: #0a192f;
+}
+
+/* Thin dark scrollbar (Firefox, then Chrome/Edge/Safari) */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: #233554 #0a192f;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0a192f;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #233554;
+    border-radius: 4px;
 }
 
 p {
-    color: #e6f1ff;
+    color: #8892b0;
+    line-height: 1.5; /* check back not sure if it works */
 }
 
 
+
+/* Sticky, frosted nav bar that stays at the top while scrolling */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    padding: 20px 0;
+    background-color: rgba(10, 25, 47, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px -10px rgba(2, 12, 27, 0.7);
+}
+
 nav {
     display: flex;
+    align-items: center;
     /* Space along the main axis */
   justify-content: space-between;
 
@@ -24,44 +94,331 @@ nav {
 
 nav a:first-child {
     margin-right:auto;
+    margin-left: 2%; 
+    font-size: 30px;
 }
 
 nav a {
-    font-size: 20px;
-    color: white;
+    font-family: "Fira Code", Consolas, monospace;
+    font-size: 15px;
+    color: #a8b2d1;
+     text-decoration: none;
+    transition: color 0.2s ease;
 }
+
+nav a:hover {
+    color: #64ffda
+
+}
+
+
+nav a:last-child {
+    margin-right:2%;
+}
+
+
 
 /* this is to make alll the content show in a vertical center section of the page */
 
-main, footer {
-    max-width: 800px;  /* Don't let the content get too wide */
-    margin: 0 auto;    /* Center the container */
-    padding: 0 20px;   /* Give its content 20px of side space */
+main {
+    max-width: 900px;       /* Prevents the content from becoming too wide */
+    margin: 40px auto 0;    /* 40px top space, centered horizontally, no bottom margin */
+    padding: 0 20px;        /* Adds 20px of space inside on the left and right */
+}
+
+footer {
+    max-width: 900px;       /* Keeps the footer content from becoming too wide */
+    margin: 80px auto 0;    /* 80px top space, centered horizontally, no bottom margin */
+    padding: 0 20px;        /* Adds 20px of space inside on the left and right */
+}
+
+footer {
+    border-top: 1px solid #233554; /* faint divider above the footer */
+}
+
+footer p {
+    text-align: center;
+    font-size: 14px;
 }
 
 
-#intro-section {
+section {
+    margin-bottom: 200px;
+    scroll-margin-top: 100px; /* keeps headings clear of the sticky nav after a nav jump */
+}
+
+
+#intro-section { /* horizantal flexibox */
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 40px;
+    min-height: calc(100vh - 160px); /* fills the first screen below the nav */
+}
+
+#social-links { /* vertical nested(nested in the one above) flexibox */
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Social icons lift and brighten on hover, matching the buttons */
+#social-links img {
+    display: block;
+    opacity: 0.8;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+#social-links a:hover img {
+    transform: translateY(-3px);
+    opacity: 1;
 }
 
 
-#intro-section div > p:first-child {
-    font-size: 30px;
+
+
+#intro-section div > p:nth-child(2)  {
+    max-width: 500px; /* Controls how wide the paragraph can be */
+    line-height: 1.6; /* Makes the lines easier to read */
 }
+
+
+   
 
 #intro-section span {
     color: #64ffda
 }
 
+/*
+#intro-section > img {
+    width: 350px;
+    height: 350px;
+    border-radius: 2%;
+    object-fit: cover;
+}
+
+*/
+/* Portrait with a teal tint overlay */
+#portrait-frame {
+    position: relative;
+    flex-shrink: 0; /* stops the text block squeezing the photo */
+    border-radius: 2%;
+    overflow: hidden; /* clips the tint overlay to the photo's corners */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* on the frame, since overflow would clip it on the img */
+}
+
+#portrait-frame img {
+    display: block;
+    width: 300px;
+    height: 400px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 2%;
+    filter: grayscale(100%) contrast(1.05); /* toned down so the teal tint reads cleanly */
+    transition: filter 0.3s ease;
+}
+
+/* Teal tint laid over the photo */
+#portrait-frame::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #64ffda;
+    mix-blend-mode: multiply;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+/* Hover: teal tint fades away to reveal the full-colour photo */
+#portrait-frame:hover img {
+    filter: none;
+}
+
+#portrait-frame:hover::after {
+    opacity: 0;
+}
 
 
-#social-links {
+
+/* Skills: each group is a label on the left with its skill tags beside it */
+#skills-list > div {
     display: flex;
+    align-items: baseline;
     gap: 20px;
+    margin-bottom: 24px;
 }
 
-#about-me-section p:first-child {
-    font-size: 32px;
+#skills-list h3 {
+    flex: 0 0 170px; /* fixed label column so the tag rows line up */
+    margin: 0;
+    font-family: "Fira Code", Consolas, monospace;
+    font-size: 15px;
+    font-weight: 500;
+    color: #64ffda;
 }
+
+#skills-list ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* Skill tags: rounded teal-outlined pills */
+#skills-list li {
+    padding: 6px 14px;
+    border: 1px solid rgba(100, 255, 218, 0.4);
+    border-radius: 999px;
+    font-size: 15px;
+    color: #a8b2d1;
+    transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+/* Hover: lift the tag and brighten it, like the buttons */
+#skills-list li:hover {
+    transform: translateY(-3px);
+    border-color: #64ffda;
+    color: #64ffda;
+}
+
+
+
+/* Outlined accent buttons: "View Resume" in the intro and "Let's Connect" in the contact section */
+#resume-button,
+#contact-button {
+    display: inline-block;
+    padding: 10px 18px;
+    border: 2px solid #64ffda;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+    color: #64ffda;
+}
+
+/* Hover: lift the button, fill it with the accent color and add a soft glow underneath */
+#resume-button:hover,
+#contact-button:hover {
+    transform: translateY(-3px);
+    background-color: #64ffda;
+    color: #0a192f;
+    box-shadow: 0 6px 20px rgba(100, 255, 218, 0.25);
+}
+
+/* Click: sink partway back down with a tighter glow so the press feels physical */
+#resume-button:active,
+#contact-button:active {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(100, 255, 218, 0.2);
+}
+
+/* Keyboard focus: accent outline shown only when tabbing, not on mouse clicks */
+#resume-button:focus-visible,
+#contact-button:focus-visible {
+    outline: 2px solid #64ffda;
+    outline-offset: 4px;
+}
+
+
+
+#contact-section {
+    text-align: center;
+}
+
+/* Centered heading here, so drop the side line */
+#contact-section h2 {
+    justify-content: center;
+}
+
+#contact-section h2::after {
+    display: none;
+}
+
+
+
+/* Fade-in on load: intro pieces rise in one after another (skipped if the visitor prefers reduced motion) */
+@keyframes fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    #intro-section > div:first-child > *,
+    #portrait-frame {
+        animation: fade-up 0.6s ease both;
+    }
+
+    #intro-section > div:first-child > :nth-child(2) { animation-delay: 0.15s; }
+    #intro-section > div:first-child > :nth-child(3) { animation-delay: 0.3s; }
+    #portrait-frame { animation-delay: 0.45s; }
+}
+
+
+
+/* Mobile layout: stack the intro, shrink headings, let the nav wrap */
+@media (max-width: 768px) {
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px 18px;
+    }
+
+    nav a:first-child {
+        width: 100%;
+        margin: 0 0 4px;
+        text-align: center;
+        font-size: 22px;
+    }
+
+    nav a:last-child {
+        margin-right: 0;
+    }
+
+    #intro-section {
+        flex-direction: column-reverse; /* portrait above the text */
+        min-height: auto;
+        padding-top: 20px;
+    }
+
+    #portrait-frame img {
+        width: 220px;
+        height: 290px;
+    }
+
+    h1 {
+        font-size: 44px;
+    }
+
+    h2 {
+        font-size: 26px;
+    }
+
+    #social-links {
+        flex-wrap: wrap;
+    }
+
+    #skills-list > div {
+        flex-direction: column; /* label above its tags */
+        gap: 10px;
+    }
+
+    #skills-list h3 {
+        flex-basis: auto;
+    }
+
+    section {
+        margin-bottom: 80px;
+    }
+
+    footer {
+        margin-top: 40px;
+    }
+}
+

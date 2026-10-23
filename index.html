@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 
-<html lang="eng">
+<html lang="en">
 <head>
 <title> Darren's Portfolio </title>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;600;700&display=swap">
 <link rel="stylesheet" href="style.css" >
 
 </head>
@@ -13,10 +17,10 @@
 <header>
         <nav>
             <a href="">Darren Drummond</a>
-            <a href="">about</a>
-            <a href="">work</a>
-            <a href="">skills</a>
-            <a href="">contact</a>
+            <a href="#about-me-section">About</a>
+            <a href="#case-study-section">Work</a>
+            <a href="#skills-section">Skills</a>
+            <a href="#contact-section">Contact</a>
         </nav>
 </header>
 
@@ -26,63 +30,106 @@
 
 <section id="intro-section">
    <div>
-    <p>HI, I am <span>Darren.</span></p>
+    <h1>HI, I am <span>Darren.</span></h1>
     
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br>Integer vitae justo nec
-         arcu tincidunt consequat. Curabitur euismod, sapien at tincidunt facilisis, libero
-          neque tincidunt lorem, vitae <br> aliquam nisl justo non nisi.Lorem ipsum dolor sit 
-          amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et 
-          dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
-          laboris.
+    <p>I’m passionate about technology, learning new skills, and exploring innovative ideas. I enjoy applying what I learn to personal projects and building practical solutions.
+
     </p>
     <div id="social-links">
         <a href=""><img src="./assets/github-icon.png" alt="github"> </a>
         <a href=""><img src="./assets/linkedin-icon.png" alt="linkedin"> </a>
-        <a href=""><img src="./assets/resume-icon.png" alt="resume cv viewing pdf"> </a>
+       
+
+        <a href="./assets/Darren-Resume.pdf" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            id="resume-button">
+                View Resume
+        </a>
+
+
+
     </div>
 </div>
-     <img src="" alt="portrait photo">
+    <div id="portrait-frame">
+        <img src="./assets/sample-portriat.png" alt="portrait photo" >
+    </div>
     
 </section>
 
 
 <section id="about-me-section">
+    <h2>
+        About Me 
+    </h2>
     <p>
-        About Me
-    </p>
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br>Integer vitae justo nec
-         arcu tincidunt consequat. Curabitur euismod, sapien at tincidunt facilisis, libero
-          neque tincidunt lorem, vitae <br> aliquam nisl justo non nisi.Lorem ipsum dolor sit 
-          amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et 
-          dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
-          laboris.
+            Hi, I'm Darren Drummond,  I completed my secondary education at mannings school before attending the University of Technology, Jamaica, where I graduated with Honours with a BSc in Computing, majoring in Computer Science. 
+    During my academic journey, I developed a solid foundation in computing while gaining technical skills and achieving several academic milestones.
+    I enjoy applying what I've learned to real-world challenges and continuously exploring new technologies to expand my expertise.  I'm eager to grow professionally, contribute to innovative projects, and take on opportunities that allow me to make a meaningful impact.
+    Through my GitHub portfolio, I showcase personal and collaborative projects that reflect my abilities, creativity, and commitment to software development, including the development of this website. 
+    I'm always looking for ways to improve my skills and create effective, high-quality solutions.  
     </p>
 </section>
 
 
 
-<section>
-    <p>
+<section id="case-study-section">
+    <h2>
         Case Study
-    </p>
+    </h2>
 </section>
 
 
-<section>
-    <p>
+<section id="skills-section">
+    <h2>
     Technical Competencies
-    </p>
+    </h2>
+
+    <div id="skills-list">
+        <div>
+            <h3>Programming</h3>
+            <ul>
+                <li>Java</li>
+                <li>Python</li>
+                <li>C/C++</li>
+                <li>JavaScript</li>
+                <li>SQL</li>
+            </ul>
+        </div>
+
+        <div>
+            <h3>Web Technologies</h3>
+            <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+            </ul>
+        </div>
+
+        <div>
+            <h3>Tools &amp; Platforms</h3>
+            <ul>
+                <li>Git</li>
+                <li>GitHub</li>
+                <li>Visual Studio Code</li>
+                <li>Linux</li>
+                <li>Figma</li>
+                <li>Firebase</li>
+            </ul>
+        </div>
+    </div>
 </section>
 
-<section>
-    <p> Get In Touch</p>
+<section id="contact-section">
+    <h2> Get In Touch</h2>
+    <p>I'm currently open to new opportunities, whether that's a full-time role, a freelance project, or a collaboration on something interesting. If you have a question, an idea you'd like to build, or just want to say hello, my inbox is always open and I'll do my best to get back to you.</p>
+    <br>
+    <a href="mailto:darrendrummond22@gmail.com" id="contact-button">Let's Connect</a>
 </section>
 
 </main>
 
 <footer>
- <p> built & Designed by Darren Drummond</p>
+ <p> Built & Designed by Darren Drummond</p>
 </footer>
 
 
