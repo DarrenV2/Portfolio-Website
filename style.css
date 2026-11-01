@@ -94,8 +94,9 @@ nav {
 
 nav a:first-child {
     margin-right:auto;
-    margin-left: 2%; 
-    font-size: 30px;
+    margin-left: 2%;
+    font-size: 22px;
+    font-weight: 500;
 }
 
 nav a {
@@ -143,7 +144,7 @@ footer p {
 
 
 section {
-    margin-bottom: 200px;
+    margin-bottom: 180px;
     scroll-margin-top: 100px; /* keeps headings clear of the sticky nav after a nav jump */
 }
 
@@ -189,15 +190,7 @@ section {
     color: #64ffda
 }
 
-/*
-#intro-section > img {
-    width: 350px;
-    height: 350px;
-    border-radius: 2%;
-    object-fit: cover;
-}
 
-*/
 /* Portrait with a teal tint overlay */
 #portrait-frame {
     position: relative;
@@ -236,6 +229,96 @@ section {
 
 #portrait-frame:hover::after {
     opacity: 0;
+}
+
+
+
+/* Projects: the box around each project */
+#projects-section article {
+    padding: 30px;
+    background-color: #112240;
+    border: 1px solid #233554;
+    border-radius: 6px;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+/* Hover: lift the box and turn its border teal, like the skill tags and buttons */
+#projects-section article:hover {
+    transform: translateY(-5px);
+    border-color: #64ffda;
+}
+
+/* Space between boxes, once there's more than one project */
+#projects-section article + article {
+    margin-top: 30px;
+}
+
+/* "Featured Project" label */
+#projects-section article > p:first-child {
+    margin: 0 0 8px;
+    font-family: "Fira Code", Consolas, monospace;
+    font-size: 14px;
+    color: #64ffda;
+}
+
+#projects-section h3 {
+    margin: 0 0 15px;
+    font-size: 28px;
+    color: #e6f1ff;
+}
+
+/* Description */
+#projects-section h3 + p {
+    margin: 0;
+    color: #a8b2d1; /* reads better than #8892b0 on the lighter box */
+}
+
+/* "</> made with:" label: the paragraph after the description */
+#projects-section p + p {
+    margin: 20px 0 10px;
+    font-family: "Fira Code", Consolas, monospace;
+    font-size: 14px;
+    color: #64ffda;
+}
+
+/* Tech list: a row of tags */
+#projects-section ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0 0 20px;
+    padding: 0;
+    list-style: none;
+}
+
+/* Tech tags: like the skill tags, but smaller and without the lift on hover */
+#projects-section li {
+    padding: 6px 14px;
+    border: 1px solid rgba(100, 255, 218, 0.4);
+    border-radius: 999px;
+    font-size: 13px;
+    color: #a8b2d1;
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+#projects-section li:hover {
+    border-color: #64ffda;
+    color: #64ffda;
+}
+
+/* Button row: side by side, wrapping onto a new line on narrow screens (the button look is shared below) */
+#projects-section article > div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+/* Wake-up note under the buttons */
+#projects-section small {
+    display: block;
+    margin-top: 12px;
+    font-size: 13px;
+    color: #8892b0;
 }
 
 
@@ -285,11 +368,15 @@ section {
 
 
 
-/* Outlined accent buttons: "View Resume" in the intro and "Let's Connect" in the contact section */
+/* Outlined accent buttons: "View Resume" in the intro, the project links and "Let's Connect" in the contact section */
 #resume-button,
-#contact-button {
+#contact-button,
+#projects-section article a {
     display: inline-block;
     padding: 10px 18px;
+    font-family: "Fira Code", Consolas, monospace;
+    font-size: 14px;
+    font-weight: 500;
     border: 2px solid #64ffda;
     border-radius: 6px;
     text-decoration: none;
@@ -299,7 +386,8 @@ section {
 
 /* Hover: lift the button, fill it with the accent color and add a soft glow underneath */
 #resume-button:hover,
-#contact-button:hover {
+#contact-button:hover,
+#projects-section article a:hover {
     transform: translateY(-3px);
     background-color: #64ffda;
     color: #0a192f;
@@ -308,14 +396,16 @@ section {
 
 /* Click: sink partway back down with a tighter glow so the press feels physical */
 #resume-button:active,
-#contact-button:active {
+#contact-button:active,
+#projects-section article a:active {
     transform: translateY(-1px);
     box-shadow: 0 2px 8px rgba(100, 255, 218, 0.2);
 }
 
 /* Keyboard focus: accent outline shown only when tabbing, not on mouse clicks */
 #resume-button:focus-visible,
-#contact-button:focus-visible {
+#contact-button:focus-visible,
+#projects-section article a:focus-visible {
     outline: 2px solid #64ffda;
     outline-offset: 4px;
 }
@@ -374,7 +464,7 @@ section {
         width: 100%;
         margin: 0 0 4px;
         text-align: center;
-        font-size: 22px;
+        font-size: 20px;
     }
 
     nav a:last-child {
